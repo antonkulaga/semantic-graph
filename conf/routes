@@ -3,9 +3,11 @@
 # ~~~~
 
 # Home page
-GET     /                           controllers.Application.index
+GET        /                     controllers.Application.index
+
+POST          /graph/endpoint            controllers.GraphController.graphEndpoint()
 
 # Map static resources from the /public folder to the /assets URL path
 # Enable webjar based resources to be returned
-GET     /webjars/*file              controllers.WebJarAssets.at(file)
-GET     /assets/*file               controllers.Assets.at(path="/public", file)
+GET        /webjars/*file        controllers.WebJarAssets.at(file)
+GET        /assets/*file         controllers.Assets.at(path="/public", file)

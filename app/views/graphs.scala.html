@@ -1,10 +1,6 @@
 @()(implicit request: RequestHeader)
-<section class="ut pink piled segment">
 
-</section>
-<footer class="ui bottom teal piled segment">
-  <section class="ui green green message">
-    This examples shows visualization of gene connections between each other after conducting GSEA (Gene Set Expressions Enrichment Analyses) .
-    <br/> Great thanks to Alexey Moskalev for providing the data.
-  </section>
-</footer>
+<main id = "graph" data-view="GraphSlide"  class = "ui centered inverted tertiary green stacked segment" data-param-path="/graph/endpoint" data-param-resource="http://webintelligence.eu/resource/node_1" >
+    <div id="graph-container"></div>
+
+</main>

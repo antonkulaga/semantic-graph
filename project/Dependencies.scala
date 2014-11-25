@@ -1,3 +1,4 @@
+import bintray.Opts
 import sbt.Keys._
 import sbt._
 
@@ -10,8 +11,9 @@ object Dependencies
   val preview = Def.setting(shared.value ++ Seq(
     "org.webjars" %% "webjars-play" % "2.3.0-2",
     "org.webjars" % "jquery" % "1.11.1",
-    "org.webjars" % "Semantic-UI" % "0.19.0-1",
-    "org.webjars" % "three.js" % "r66"
+    "org.webjars" % "three.js" % "r66",
+    "org.denigma" %% "binding-play" % "0.6.2",
+    "com.assembla.scala-incubator" %% "graph-core" % "1.9.0"
   ))
 
   val graphs = Def.setting(shared.value++Seq(

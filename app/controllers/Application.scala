@@ -1,19 +1,13 @@
 package controllers
 
-import play.api._
-import play.api.mvc._
+import play.api.mvc.{Controller, AnyContent, Action}
 
 object Application extends Controller {
 
-  def index = Action{implicit request=>
 
-    Ok(
-      views.html.index(request)
-    )
+  def index(): Action[AnyContent] =  Action {
+    implicit request=>
+      Ok(views.html.index(request))
   }
-
-//  def javascriptRoutes = Action { implicit request =>
-//    Ok(Routes.javascriptRouter("jsRoutes")(routes.javascript.MessageController.getMessage)).as(JAVASCRIPT)
-//  }
 
 }
