@@ -13,7 +13,6 @@ class SemanticNode(data:Var[PropertyModel], view:NodeView[Var[PropertyModel]]) e
   def id = data.now
 
   override def receive:PartialFunction[Any,Unit] = {
-
     case other => dom.console.log(s"unknown message $other")
     //nothing
   }

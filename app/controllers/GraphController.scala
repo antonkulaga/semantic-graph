@@ -3,7 +3,8 @@ package controllers
 
 import controllers.graph.GSEA
 import controllers.graph.GSEA.{Edge, Node}
-import play.api.Play
+import org.jboss.netty.handler.codec.http.HttpRequest
+import play.api.{Logger, Play}
 import play.api.Play.current
 import controllers.Application._
 import controllers.graph.GSEA
@@ -14,9 +15,9 @@ import org.denigma.binding.play.{AuthRequest, PickleController, UserAction}
 import org.scalajs.spickling.playjson._
 import org.scalax.semweb.rdf._
 import org.scalax.semweb.rdf.vocabulary.WI
-import play.api.Play
 import play.api.libs.json.{JsArray, JsValue, Json}
-import play.api.mvc.{Controller, Result}
+import play.api.mvc.{RequestHeader, Controller, Result}
+import play.mvc.Http
 
 import scala.concurrent.Future
 import scala.io.Source
@@ -29,12 +30,16 @@ import scalax.collection.immutable.Graph // shortcuts
  */
 object GraphController extends Controller with PickleController
 {
+  protected var graph:Option[ Graph[Res, LDiEdge]] = None
 
 
-  def parseGraph(): (Seq[Node], Seq[Edge]) = {
-    val f = Play.getExistingFile("public/data/cellular.json").get
-    val str = Source.fromFile(f).getLines().reduce(_ + _)
-    val json: JsValue = Json.parse(str)
+  def readFrom(path:String)(implicit request:RequestHeader) = {
+    val url = routes.Assets.at(path).absoluteURL(secure = false)(request)
+    Source.fromURL(url).getLines().reduce(_ + _)
+  }
+
+  def parseGraph(implicit request:RequestHeader): (Seq[Node], Seq[Edge]) = {
+    val json: JsValue = Json.parse(this.readFrom("/data/cellular.json"))
     val ns = (json \ "nodes").as[JsArray]
     val es = (json \ "edges").as[JsArray]
     val edges = es.value.map(e => e.as[GSEA.Edge])
@@ -42,8 +47,8 @@ object GraphController extends Controller with PickleController
     (nodes,edges)
   }
 
-  def initGraph() = {
-    lazy val (nodes,edges) = parseGraph()
+  protected def initGraph(implicit request:GraphRequest) = {
+    lazy val (nodes,edges) = parseGraph
 
     lazy val semNodes: Map[Int, Res] = nodes.map(n=>n.id->vocabulary.WI.re(n.name.replace(" ","_"))).toMap[Int,Res]
 
@@ -56,8 +61,6 @@ object GraphController extends Controller with PickleController
 
 
 
-  lazy val graph: Graph[Res, LDiEdge] = initGraph()
-  
   type GraphRequest = AuthRequest[GraphMessages.GraphMessage]
 
   type GraphResult = Future[Result]
@@ -67,31 +70,32 @@ object GraphController extends Controller with PickleController
     this.onGraphMessage(request.body)
   }
 
-  def traverse(exp:GraphMessages.NodeExplore) = {
-    play.Logger.debug(s"${graph.toString()} res = ${exp.resource} ")
-    val n: graph.NodeT = this.graph.get(exp.resource)
-    val quads = graph.edges.collect{
-      case e if e.from==n
-      =>
-        Quad(exp.resource,e.label.asInstanceOf[IRI],e.to.value.asInstanceOf[IRI],IRI(WI.RESOURCE))
-      case e if e.to==n
-      =>
-        Quad(e.from.value.asInstanceOf[IRI],e.label.asInstanceOf[IRI],exp.resource,IRI(WI.RESOURCE))
-    }
-
-    Future.successful(Ok(rp.pickle(quads.toList)).as("application/json"))
-  }
+//  def traverse(exp:GraphMessages.NodeExplore) = {
+//    val n: graph.NodeT = this.graph.get(exp.resource)
+//    val quads = graph.edges.collect{
+//      case e if e.from==n
+//      =>
+//        Quad(exp.resource,e.label.asInstanceOf[IRI],e.to.value.asInstanceOf[IRI],IRI(WI.RESOURCE))
+//      case e if e.to==n
+//      =>
+//        Quad(e.from.value.asInstanceOf[IRI],e.label.asInstanceOf[IRI],exp.resource,IRI(WI.RESOURCE))
+//    }
+//
+//    Future.successful(Ok(rp.pickle(quads.toList)).as("application/json"))
+//  }
 
   def onGraphMessage(message:GraphMessages.GraphMessage)(implicit request:GraphRequest):GraphResult = message match {
 
     case exp:GraphMessages.NodeExplore=>
-      play.Logger.debug(s"${graph.toString()} res = ${exp.resource} ")
-      val n: graph.NodeT = this.graph.get(exp.resource)
-      val quads = graph.edges.collect{
-        case e   =>
-          Quad(e.from,e.label.asInstanceOf[IRI],e.to.value.asInstanceOf[IRI],IRI(WI.RESOURCE))
-      }
-      
+      if(graph.isEmpty) graph = Some(this.initGraph)
+
+      val quads = this.graph.map{
+        case g=>    g.edges.collect{
+            case e   =>  Quad(e.from,e.label.asInstanceOf[IRI],e.to.value.asInstanceOf[IRI],IRI(WI.RESOURCE))
+          }
+      }.get
+
+
       Future.successful(Ok(rp.pickle(quads.toList)).as("application/json"))
 
     case other=>onBadGraphMessage(message)
