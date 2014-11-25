@@ -1,17 +1,30 @@
-*.class
-*.log
+tmp
+.history
+dist
+/out
+/.classpath
+/.project
+/RUNNING_PID
+/.settings
+/~*
 
-# sbt specific
-.cache/
-.history/
-.lib/
-dist/*
-target/
-lib_managed/
-src_managed/
+# SBT specific
+logs
+project/project
+target
 project/boot/
 project/plugins/project/
 
 # Scala-IDE specific
 .scala_dependencies
 .worksheet
+
+# Intellij IDEA specific
+/.idea_modules
+/.idea
+/*.iml
+
+# activator specific
+/project/*-shim.sbt
+/activator-sbt-atmos-akka-shim.sbt
+/activator*
