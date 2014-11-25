@@ -49,7 +49,11 @@ object Build extends sbt.Build with UniversalKeys with Publisher{
     publishMavenStyle := false,
     resolvers += Opts.resolver.repo("scalax", "scalax-releases"),
     resolvers += Opts.resolver.repo("denigma", "denigma-releases"),
-    resolvers += Opts.resolver.repo("alexander-myltsev", "maven")
+    resolvers += Opts.resolver.repo("alexander-myltsev", "maven"),
+    resolvers += Resolver.url("scala-js-releases",
+      url("http://dl.bintray.com/content/scala-js/scala-js-releases"))(
+        Resolver.ivyStylePatterns)
+
   )
 
   lazy val scalajsSettings =

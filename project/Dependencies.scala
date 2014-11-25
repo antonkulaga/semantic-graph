@@ -13,7 +13,8 @@ object Dependencies
     "org.webjars" % "jquery" % "1.11.1",
     "org.webjars" % "three.js" % "r66",
     "org.denigma" %% "binding-play" % "0.6.2",
-    "com.assembla.scala-incubator" %% "graph-core" % "1.9.0"
+    "com.assembla.scala-incubator" %% "graph-core" % "1.9.0",
+    "org.scalajs" %% "scalajs-pickling-play-json" % "0.3.1"
   ))
 
   val graphs = Def.setting(shared.value++Seq(
@@ -25,6 +26,7 @@ object Dependencies
   ))
 
   val ui = Def.setting(shared.value :+ "org.denigma" %%% "binding" % "0.6.4")
+
 
 
 }

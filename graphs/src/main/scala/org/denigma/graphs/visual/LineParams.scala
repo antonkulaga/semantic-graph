@@ -21,9 +21,9 @@ object Defs extends Randomizable
 
   def color = colorMap(colorName)
 
-  def headLength = 30
+  def headLength = 0// 30
 
-  def headWidth= 15
+  def headWidth= 0//15
 
 
 }

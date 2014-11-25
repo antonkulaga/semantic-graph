@@ -6,7 +6,7 @@ import org.denigma.graphs.simple.{SimpleNode, SimpleEdge}
 import org.scalajs.dom
 
 
-class ForceLayout(val width:Double = 1000, val height:Double = 1000, val attractionMult:Double =  4, val repulsionMult:Double =  0.4) extends GraphLayout
+class ForceLayout(val width:Double = 1000, val height:Double = 1000, val attractionMult:Double =  10/*4*/, val repulsionMult:Double =  0.6/*0.4*/) extends GraphLayout
 {
 
   override type Node = SemanticNode

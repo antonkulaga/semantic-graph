@@ -1,0 +1,497 @@
+{
+ "nodes": [ {
+ "id": "1",
+"name": "apicolateral plasma membr...",
+"size": "89" 
+},
+{
+ "id": "2",
+"name": "extracellular region",
+"size": "607" 
+},
+{
+ "id": "3",
+"name": "intracellular",
+"size": "1445" 
+},
+{
+ "id": "4",
+"name": "postsynaptic membrane",
+"size": "88" 
+},
+{
+ "id": "5",
+"name": "nucleoplasm",
+"size": "71" 
+},
+{
+ "id": "6",
+"name": "extracellular space",
+"size": "403" 
+},
+{
+ "id": "7",
+"name": "larval serum protein comp...",
+"size": "5" 
+},
+{
+ "id": "8",
+"name": "chorion",
+"size": "45" 
+},
+{
+ "id": "9",
+"name": "perinuclear region of cyt...",
+"size": "125" 
+},
+{
+ "id": "10",
+"name": "tubulin complex",
+"size": "11" 
+},
+{
+ "id": "11",
+"name": "apical cortex",
+"size": "109" 
+},
+{
+ "id": "12",
+"name": "small ribosomal subunit",
+"size": "20" 
+},
+{
+ "id": "13",
+"name": "presynaptic membrane",
+"size": "63" 
+},
+{
+ "id": "14",
+"name": "vitelline envelope",
+"size": "5" 
+},
+{
+ "id": "15",
+"name": "egg coat",
+"size": "2" 
+},
+{
+ "id": "16",
+"name": "peroxisome",
+"size": "51" 
+},
+{
+ "id": "17",
+"name": "muscle tendon junction",
+"size": "24" 
+},
+{
+ "id": "18",
+"name": "membrane raft",
+"size": "2" 
+},
+{
+ "id": "19",
+"name": "germline ring canal",
+"size": "60" 
+},
+{
+ "id": "20",
+"name": "chromatin",
+"size": "103" 
+},
+{
+ "id": "21",
+"name": "basal cortex",
+"size": "23" 
+},
+{
+ "id": "22",
+"name": "Yb body",
+"size": "7" 
+},
+{
+ "id": "23",
+"name": "ribonucleoside-diphosphat...",
+"size": "2" 
+},
+{
+ "id": "24",
+"name": "pole plasm",
+"size": "17" 
+},
+{
+ "id": "25",
+"name": "telomeric heterochromatin",
+"size": "1" 
+},
+{
+ "id": "26",
+"name": "P granule",
+"size": "30" 
+},
+{
+ "id": "27",
+"name": "nuclear origin of replica...",
+"size": "8" 
+},
+{
+ "id": "28",
+"name": "spectrosome",
+"size": "11" 
+},
+{
+ "id": "29",
+"name": "nuclear cyclin-dependent ...",
+"size": "14" 
+},
+{
+ "id": "30",
+"name": "lateral plasma membrane",
+"size": "61" 
+},
+{
+ "id": "31",
+"name": "meiotic spindle",
+"size": "1" 
+},
+{
+ "id": "32",
+"name": "PCNA complex",
+"size": "3" 
+},
+{
+ "id": "33",
+"name": "nuclear pre-replicative c...",
+"size": "9" 
+},
+{
+ "id": "34",
+"name": "external side of plasma m...",
+"size": "11" 
+},
+{
+ "id": "35",
+"name": "sarcoplasmic reticulum",
+"size": "12" 
+} ],
+"edges": [ {
+ "from":      1,
+"to":      4,
+"overlaps":     17 
+},
+{
+ "from":      1,
+"to":      9,
+"overlaps":     17 
+},
+{
+ "from":      1,
+"to":     11,
+"overlaps":     42 
+},
+{
+ "from":      1,
+"to":     13,
+"overlaps":     17 
+},
+{
+ "from":      1,
+"to":     28,
+"overlaps":      1 
+},
+{
+ "from":      1,
+"to":     30,
+"overlaps":     33 
+},
+{
+ "from":      2,
+"to":      3,
+"overlaps":      5 
+},
+{
+ "from":      2,
+"to":      4,
+"overlaps":      2 
+},
+{
+ "from":      2,
+"to":      6,
+"overlaps":     96 
+},
+{
+ "from":      2,
+"to":      7,
+"overlaps":      5 
+},
+{
+ "from":      2,
+"to":      8,
+"overlaps":      7 
+},
+{
+ "from":      2,
+"to":     14,
+"overlaps":      1 
+},
+{
+ "from":      2,
+"to":     17,
+"overlaps":      6 
+},
+{
+ "from":      2,
+"to":     18,
+"overlaps":      1 
+},
+{
+ "from":      2,
+"to":     19,
+"overlaps":      1 
+},
+{
+ "from":      2,
+"to":     34,
+"overlaps":      8 
+},
+{
+ "from":      3,
+"to":      5,
+"overlaps":      6 
+},
+{
+ "from":      3,
+"to":      6,
+"overlaps":      6 
+},
+{
+ "from":      3,
+"to":      9,
+"overlaps":      1 
+},
+{
+ "from":      3,
+"to":     11,
+"overlaps":     11 
+},
+{
+ "from":      3,
+"to":     12,
+"overlaps":     14 
+},
+{
+ "from":      3,
+"to":     13,
+"overlaps":      5 
+},
+{
+ "from":      3,
+"to":     17,
+"overlaps":      5 
+},
+{
+ "from":      3,
+"to":     20,
+"overlaps":     25 
+},
+{
+ "from":      3,
+"to":     21,
+"overlaps":      7 
+},
+{
+ "from":      3,
+"to":     26,
+"overlaps":      1 
+},
+{
+ "from":      3,
+"to":     30,
+"overlaps":      4 
+},
+{
+ "from":      3,
+"to":     34,
+"overlaps":      2 
+},
+{
+ "from":      4,
+"to":      9,
+"overlaps":     17 
+},
+{
+ "from":      4,
+"to":     11,
+"overlaps":     17 
+},
+{
+ "from":      4,
+"to":     13,
+"overlaps":     20 
+},
+{
+ "from":      4,
+"to":     30,
+"overlaps":     17 
+},
+{
+ "from":      5,
+"to":     20,
+"overlaps":      7 
+},
+{
+ "from":      5,
+"to":     22,
+"overlaps":      1 
+},
+{
+ "from":      5,
+"to":     25,
+"overlaps":      1 
+},
+{
+ "from":      6,
+"to":      8,
+"overlaps":      3 
+},
+{
+ "from":      6,
+"to":      9,
+"overlaps":      4 
+},
+{
+ "from":      6,
+"to":     18,
+"overlaps":      1 
+},
+{
+ "from":      8,
+"to":     14,
+"overlaps":      1 
+},
+{
+ "from":      8,
+"to":     15,
+"overlaps":      1 
+},
+{
+ "from":      9,
+"to":     11,
+"overlaps":     17 
+},
+{
+ "from":      9,
+"to":     13,
+"overlaps":     17 
+},
+{
+ "from":      9,
+"to":     20,
+"overlaps":      1 
+},
+{
+ "from":      9,
+"to":     24,
+"overlaps":      2 
+},
+{
+ "from":      9,
+"to":     26,
+"overlaps":      3 
+},
+{
+ "from":      9,
+"to":     28,
+"overlaps":      2 
+},
+{
+ "from":      9,
+"to":     30,
+"overlaps":     17 
+},
+{
+ "from":     10,
+"to":     31,
+"overlaps":      1 
+},
+{
+ "from":     11,
+"to":     13,
+"overlaps":     21 
+},
+{
+ "from":     11,
+"to":     17,
+"overlaps":      2 
+},
+{
+ "from":     11,
+"to":     21,
+"overlaps":     20 
+},
+{
+ "from":     11,
+"to":     30,
+"overlaps":     21 
+},
+{
+ "from":     13,
+"to":     30,
+"overlaps":     17 
+},
+{
+ "from":     14,
+"to":     15,
+"overlaps":      1 
+},
+{
+ "from":     14,
+"to":     19,
+"overlaps":      1 
+},
+{
+ "from":     14,
+"to":     34,
+"overlaps":      1 
+},
+{
+ "from":     19,
+"to":     34,
+"overlaps":      1 
+},
+{
+ "from":     22,
+"to":     25,
+"overlaps":      1 
+},
+{
+ "from":     24,
+"to":     26,
+"overlaps":      8 
+},
+{
+ "from":     24,
+"to":     28,
+"overlaps":      2 
+},
+{
+ "from":     24,
+"to":     29,
+"overlaps":      3 
+},
+{
+ "from":     26,
+"to":     28,
+"overlaps":      2 
+},
+{
+ "from":     28,
+"to":     29,
+"overlaps":      3 
+},
+{
+ "from":     28,
+"to":     30,
+"overlaps":      1 
+} ] 
+}

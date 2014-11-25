@@ -49,14 +49,14 @@ abstract class SemanticGraphView(val elem:HTMLElement,val params:Map[String,Any]
 
 
     def onMouseOver(event:Event) = {
-      l.textContent = iri.stringValue
-      l.className = cl(s"big $colorName")
+     // l.textContent = iri.stringValue
+      l.className = cl(s"large $colorName")
       l.contentEditable = "true"
     }
 
     def onMouseOut(event:Event) = {
       l.textContent = iri.label
-      l.className = cl(s"large $colorName")
+      l.className = cl(s"big $colorName")
       l.contentEditable = "false"
     }
 
